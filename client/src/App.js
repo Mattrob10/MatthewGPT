@@ -106,12 +106,14 @@ function App() {
           ))}
         </ul>
         <div className='bottom-section'>
-          <div className='input-container'>
-            <input value={value} onChange={(e) => setValue(e.target.value)}onKeyDown={handleKeyDown} />
-            <div id='submit' onClick={getMessages}>
-              ➢
+            <form onSubmit={(e) => e.preventDefault()}>
+            <div className='input-container'>
+              <input value={value} onChange={(e) => setValue(e.target.value)} onKeyDown={handleKeyDown} />
+              <button id='submit' onClick={getMessages}>
+                ➢
+              </button>
             </div>
-          </div>
+          </form>
           <p className='info'>
             Free Research Preview. ChatGPT may produce inaccurate information
             about people, places, or facts.{" "}
