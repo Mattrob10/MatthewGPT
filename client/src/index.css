@@ -93,13 +93,7 @@ body {
   align-items: center;
 }
 
-form {
-  display: flex;
-  justify-content: center;
-}
-
 .input-container {
-  display: flex;
   position: relative;
   width: 100%;
   max-width: 650px;
@@ -107,7 +101,7 @@ form {
 }
 
 .input-container input { 
-  width: 100vh;
+  width: 85%;
   background-color: rgb(255, 255, 255, 0.05);
   font-size: 16px;
   font-weight: 300;
@@ -127,13 +121,11 @@ form {
 
 #submit {
   position:absolute;
-  background-color: transparent;
   font-size: 30px;
   bottom: 5px;
-  right: -40px;
+  right: 0;
   cursor: pointer;
   margin: 0 5px;
-  border-style: none;
 }
 
 #submit:hover{
@@ -171,7 +163,7 @@ form {
   color: #11b111e0;
 }
 
-@media only screen and (max-width: 925px) {
+@media only screen and (max-width: 772px) {
   .app{
     display: flex;
     flex-direction: column;
@@ -184,9 +176,9 @@ form {
     overflow-y: scroll;
   }
   .input-container{
-    width: 53%;
+    width: 63%;
   }
   #submit{
-    padding: 0 -40px;
+    padding: 0 20px;
   }
 }
