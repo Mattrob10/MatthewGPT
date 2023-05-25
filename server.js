@@ -8,17 +8,7 @@ const path = require("path");
 const API_KEY = process.env.API_KEY;
 
 app.use(express.json());
-app.use(cors());
-
-
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://matthewgpt.onrender.com');
-
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
-
+app.use(cors({ origin: '*' }))
 app.use(express.static(path.join(__dirname, "client", "build")));
 
 app.post('/completions', async (req, res) => {
@@ -34,7 +24,6 @@ app.post('/completions', async (req, res) => {
       max_tokens: 100,
     })
   };
-
   try {
     const response = await fetch('https://api.openai.com/v1/chat/completions', options);
     const data = await response.json();
