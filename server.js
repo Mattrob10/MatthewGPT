@@ -11,7 +11,7 @@ const path = require("path")
 
 const API_KEY = process.env.API_KEY;
 
-app.use(express.static(path.join(__dirname, "client", "build")))
+app.use(express.static(path.join(__dirname, "client", "build", "static")));
 
 app.post('/completions', async (req, res) => {
   const options = {
