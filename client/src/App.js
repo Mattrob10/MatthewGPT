@@ -32,7 +32,7 @@ function App() {
     };
     try {
       const response = await fetch(
-        "https://api.openai.com/v1/chat/completions",
+        "http://localhost:8000/completions",
         options
       );
       if (response.ok) {
