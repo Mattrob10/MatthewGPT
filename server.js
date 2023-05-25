@@ -30,6 +30,7 @@ app.post('/completions', async (req, res) => {
    const response = await fetch('https://api.openai.com/v1/chat/completions', options);
    const data = await response.json();
    console.log(data);
+   res.setHeader('Access-Control-Allow-Origin', '*'); 
    res.send(data); 
   } catch (error) {
     console.error(error);
