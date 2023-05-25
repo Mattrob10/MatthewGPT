@@ -8,11 +8,16 @@ const path = require("path");
 const API_KEY = process.env.API_KEY;
 
 app.use(express.json());
-app.use(cors({
-  origin: "http://localhost:3000",
-  methods: "GET, POST",
-  allowedHeaders: "Content-Type",
-}));
+app.use(cors());
+
+// Set the appropriate headers to allow cross-origin requests
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 app.use(express.static(path.join(__dirname, "client", "build")));
 
 app.post('/completions', async (req, res) => {
@@ -33,7 +38,6 @@ app.post('/completions', async (req, res) => {
     const response = await fetch('https://api.openai.com/v1/chat/completions', options);
     const data = await response.json();
     console.log(data);
-    res.setHeader('Access-Control-Allow-Origin', '*');
     res.send(data);
   } catch (error) {
     console.error(error);
