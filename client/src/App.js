@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import logo from './assests/icons8-chatgpt-64.png'
+
 function App() {
   const [value, setValue] = useState("");
   const [message, setMessage] = useState(null);
   const [previousChats, setPreviousChats] = useState([]);
   const [currentTitle, setCurrentTitle] = useState(null);
-
+  const API_KEY = process.env.API_KEY;
   const createNewChat = () => {
     setMessage(null);
     setValue("");
@@ -25,7 +26,8 @@ function App() {
         message: value,
       }),
       headers: {
-        "Content-Type": "application/json",
+        "Authorization": `Bearer ${API_KEY}`,
+        "Content-Type": "application/json"
       },
     };
     try {
