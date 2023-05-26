@@ -170,15 +170,32 @@ body {
   }
   .sidebar{
     width: 100%;
+    height: auto;
     max-height: 400px;
+  }
+  .sidebar-btn {
+    margin: 5px 20%;
   }
   .history{
     overflow-y: scroll;
+    height: auto;
+  }
+
+  .navbar p{
+    display: flex;
+    justify-content: center;
+  }
+
+  .feed{
+    height: auto;
+    max-height: 500px;
+    overflow-y: scroll;
   }
   .input-container{
-    width: 63%;
+    width: 90%;
   }
   #submit{
-    padding: 0 20px;
+    margin-top: 6px;
+    position: relative;
   }
 }
